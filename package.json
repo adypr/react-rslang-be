@@ -5,14 +5,17 @@
     "type": "git",
     "url": ""
   },
+  "engines": {
+    "node": "18.x"
+  },
   "type": "commonjs",
   "description": "LearnWords REST service for RS School",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "start:dev": "nodemon src/server.js",
-    "lint": "eslint ./ --ignore-path .gitignore --fix",
-    "heroku-postbuild": "npm install --only=dev"
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && node src/server.js",
+    "start:dev": "set NODE_OPTIONS=--openssl-legacy-provider && nodemon src/server.js",
+    "lint": "set NODE_OPTIONS=--openssl-legacy-provider && eslint ./ --ignore-path .gitignore --fix",
+    "heroku-postbuild": "set NODE_OPTIONS=--openssl-legacy-provider && npm install --only=dev"
   },
   "keywords": [
     "rs",
